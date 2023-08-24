@@ -9,6 +9,14 @@
   color: $white;
 }
 
+.logout {
+  margin-right: 1rem;
+  font-family: $textMediumFont;
+  font-size: $textMediumFontSize;
+  font-weight: $textMediumFontWeight;
+  cursor: pointer;
+}
+
 .title {
   color: $white;
   font-family: $h2Font;
@@ -21,9 +29,11 @@
   align-items: center;
 }
 
-.notifications {
+.link {
   margin-right: 1rem;
-  cursor: pointer;
+  font-family: $textMediumFont;
+  font-size: $textMediumFontSize;
+  font-weight: $textMediumFontWeight;
 }
 
 .avatar {

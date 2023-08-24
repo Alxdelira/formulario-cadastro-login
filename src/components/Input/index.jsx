@@ -1,7 +1,8 @@
+import React from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-export default function Input({ margin, margin_top, margin_right, margin_left, margin_bottom, ...props }) {
+function Input({ margin, margin_top, margin_right, margin_left, margin_bottom, ...props }, ref) {
   
   const classes = classNames({
     [styles.input]: true, 
@@ -19,5 +20,7 @@ export default function Input({ margin, margin_top, margin_right, margin_left, m
     ...(margin_right && { marginRight: margin_right }),
   };
   
-  return <input {...props} className={classes} style={style} />;
+  return <input {...props} ref={ref} className={classes} style={style} />;
 }
+
+export default React.forwardRef(Input);

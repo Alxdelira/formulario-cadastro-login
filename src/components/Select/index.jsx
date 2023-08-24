@@ -1,7 +1,8 @@
+import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export default function Select({ margin, margin_top, margin_right, margin_left, margin_bottom, children, ...props }) {
+function Select({ margin, margin_top, margin_right, margin_left, margin_bottom, children, ...props }, ref) {
   
   const classes = classNames({
     [styles.select]: true,    
@@ -20,8 +21,10 @@ export default function Select({ margin, margin_top, margin_right, margin_left, 
   };
   
   return (
-    <select {...props} className={classes} style={style}>
+    <select {...props} className={classes} style={style} ref={ref}>
       {children}
     </select>
   );
 }
+
+export default React.forwardRef(Select);

@@ -1,39 +1,62 @@
 import styles from './styles.module.scss';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Modal from '../Modal';
+import Button from '../Button';
+import Container from '../Container';
 import Avatar from '../Avatar';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+export default function AppBar({ title }) {
 
-export default function AppBar({ title }){
-  const [user, setUser] = useState('');
+  const router = useRouter();
 
+  const [modalSair, setModalSair] = useState(false);
+
+  const [user, setUser] = useState('')
   useEffect(() => {
     fetch('https://api.github.com/users/Alxdelira')
       .then((res) => res.json())
       .then((json) => setUser(json));
   }, []);
 
-  console.log(user);
+  function logout() {
+    const { "cras-token": token } = parseCookies();
+
+    if (token) {
+      destroyCookie(undefined, "cras-token");
+      router.push("/")
+    }
+  }
 
   return (
-    <header className={styles.header}>
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.options}> 
-        <div className={styles.avatar}>
-          <Avatar
-            urlImage={user.avatar_url}
-            alt={`Imagem do ${user.name}`}
-            link="/usuarios/perfil" />
-        </div>
+    <>
+      {modalSair && (
+        <Modal minWidth="30%" modalTitle="Deseja desconectar ?" booleanFunction={() => setModalSair(false)}>
+          <Container margin_top="2rem" justifyCenter="true">
+            <Button onClick={() => logout()}>Sim</Button>
+            <Button onClick={() => setModalSair(false)} danger="true">Não</Button>
+          </Container>
+        </Modal>
+      )}
+
+      <header className={styles.header}>
+        <h1 className={styles.title}>{title}</h1>
         <div className={styles.options}>
-          <Link href='/'>
-          Home
-          </Link>
-          <Link href='/usuarios'>
-          Usuarios
-          </Link>
+          <div className={styles.link}>
+            <Link
+              href="/perfil">
+              <Avatar
+                urlImage={user.avatar_url}
+                alt={`Imagem de perfil do ${user.name}`}
+              />
+            </Link>
+          </div>
+          <div className={styles.logout} title='Sair da plataforma' onClick={() => setModalSair(true)}>
+            <p>Sair</p>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   )
 }

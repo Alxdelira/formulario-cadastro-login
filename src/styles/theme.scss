@@ -1,21 +1,21 @@
 // Cores padrão do projeto
-$primary: #318BBA;
-$primaryDark: #146B90;
-$primaryLight: #5DAEDB;
+$primary: #333030;
+$primaryDark: #000000;
+$primaryLight: #565d61;
 $secondary: #E8EAEE;
 $secondaryDark: #C2C6D0;
 $secondaryLight: #F2F3F5;
 
 // Cores para utilização interna de componentes
-$focus:     #fff5a9;
+$focus:     #74747c;
 $dark:      #0D0D0D;
 $black:     #0D0D0D;
 $white:     #FFFFFF;
 $lightGray: #E8EAEE;
 $gray:      #D4D4D4;
 $darkGray:  #474745;
-$blue:      #318BBA;
-$darkblue:  #146B90;
+$blue:      #40474b;
+$darkblue:  #636b6e;
 $green:     #28A34D;
 $darkgreen: #20863F;
 $red:       #D43939;
@@ -32,27 +32,27 @@ $h1Color: #484946;
 $h2Font: 'Inter', 'sans-serif';
 $h2FontWeight: 400;
 $h2FontSize: 1.2rem;
-$h2Color: #8F8D99;
+$h2Color: #484946;
 
 $h3Font: 'Inter', 'sans-serif';
 $h3FontWeight: 400;
-$h3FontSize: .875rem;
-$h3Color: #8F8D99;
+$h3FontSize: 1rem;
+$h3Color: #484946;
 
 $h4Font: 'Inter', 'sans-serif';
 $h4FontWeight: 400;
 $h4FontSize: .875rem;
-$h4Color: #8F8D99;
+$h4Color: #484946;
 
 $h5Font: 'Inter', 'sans-serif';
 $h5FontWeight: 400;
 $h5FontSize: .875rem;
-$h5Color: #8F8D99;
+$h5Color: #484946;
 
 $h6Font: 'Inter', 'sans-serif';
 $h6FontWeight: 400;
 $h6FontSize: .875rem;
-$h6Color: #8F8D99;
+$h6Color: #484946;
 
 $labelFont: 'Inter', 'sans-serif';
 $labelFontSize: .875rem;
@@ -62,7 +62,7 @@ $labelColor: #484946;
 $inputFont: 'Inter', 'sans-serif';
 $inputFontSize: .625rem;
 $inputFontWeight: 500;
-$inputColor: #8F8D99;
+$inputColor: #484946;
 $placeholderFont: 'Inter', 'sans-serif';
 $placeholderFontSize: .625rem;
 $placeholderFontWeight: 500;
@@ -91,3 +91,4 @@ $menuFont: 'Inter', 'sans-serif';
 $menuFontSize: .75rem;
 $menuFontWeight: 500;
 $menuColor: #8F8D99;
+

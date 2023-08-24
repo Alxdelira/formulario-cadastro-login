@@ -16,6 +16,7 @@ export default function Button({ children, margin, margin_top, margin_right, mar
     [styles.invertDanger]: props.invertDanger,
     [styles.invertWarning]: props.invertWarning,
     [styles.invertSuccess]: props.invertSuccess,
+    [styles.fullWidth]: props.fullWidth
   });
 
   const style = {

@@ -1,36 +1,96 @@
 @import "../../styles/theme.scss";
 
-.menuContainer {
-  display: flex;
-  background-color: $lightGray;
-}
-
 .menu {
-  min-height: 100vh;
-  flex-grow: 1;
+  display: flex;
+  border: 0.1rem solid $gray;
+  width: 175px;
+  height: 100vh;
+  flex-direction: column;
+  transition: 0.5s;
 }
 
-.menuItem {
+.menuFechado {
+  transition: 0.5s;
+  width: 50px;
+}
+
+.close_container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.close_item {
+  display: flex;
+  justify-content: center;
+  border-left: 0.1rem solid $gray;
+  border-bottom: 0.1rem solid $gray;
+  border-bottom-left-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.close_item:hover {
+  background-color: $darkGray;
+  border-left: 0.1rem solid $darkGray;
+  border-bottom: 0.1rem solid $darkGray;
+
+  transition: 0.3s;
+
+  & img {
+    filter: invert(1);
+  }
+}
+
+.menu_itens {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_item {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: .313rem;
-  color: $menuColor;
-  font-family: $menuFont;
-  font-size: $menuFontSize;
-  font-weight: $menuFontWeight;
+  margin-top: 10px;
+  padding: 7px;
+  padding-left:10px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $primary;
+
+    div {
+      & {
+        color: $white;
+      }
+    }
+
+    & img {
+      filter: invert(1);
+    }
+
+  }
 }
 
-.menuItem img {
-  margin-right: .5rem;
+.menu_text {
+  margin-left: 10px;
+  font-family: $textMediumFont;
+  font-size: $textMediumFontSize;
+  font-weight: $textMediumFontWeight;
+  color: $textMediumColor
 }
 
-.menuItem:hover {
-  background-color: $gray;
-}
+.text {
+  display: inline-block;
+  animation-name: openTxt;
+  margin: auto 0;
+  animation-duration: .4s;
+  animation-iteration-count: 1;
 
-.menuButton {
-  cursor: pointer;
+  @keyframes openTxt {
+    from {
+      transform: scale(0.1, 0.1);
+    }
+    to {
+      transform: scale(1, 1);
+    }
+  }
 }
