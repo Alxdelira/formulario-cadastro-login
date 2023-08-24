@@ -1,0 +1,33 @@
+@import "../../styles/theme.scss";
+
+.formItem{
+  padding: .5rem 0;
+  flex-grow: 1;
+}
+
+.justify_end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.grow1 {
+  flex-grow: 1;
+}
+
+.grow2 {
+  flex-grow: 2;
+}
+
+.grow3 {
+  flex-grow: 3;
+}
+
+.grow4 {
+  flex-grow: 4;
+}

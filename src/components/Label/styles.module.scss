@@ -1,0 +1,29 @@
+@import "../../styles/theme.scss";
+
+.label {
+  display: block;
+  font-family: $labelFont;
+  font-size: $labelFontSize;
+  font-weight: $labelFontWeight;
+  color: $labelColor;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.info {
+  color: $blue;
+}
+
+.danger {
+  color: $red;
+}
+
+.warning {
+  color: $yellow;
+}
+
+.success {
+  color: $green;
+}

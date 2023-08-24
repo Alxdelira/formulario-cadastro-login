@@ -1,0 +1,8 @@
+@import "../../styles/theme.scss";
+
+.formGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .5rem 0;
+}

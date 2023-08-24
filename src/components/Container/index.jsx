@@ -1,0 +1,102 @@
+import styles from './styles.module.scss';
+import classNames from "classnames";
+
+export default function Container({ as: Element = "div", children, gap, padding, padding_top, padding_right, padding_left, padding_bottom, margin, margin_top, margin_right, margin_left, margin_bottom, ...props }) {
+  
+  const classes = classNames({
+    [styles.container]: true,
+    [styles.row]: props.row,
+    [styles.column]: props.column,
+    [styles.rowReverse]: props.rowReverse,
+    [styles.columnReverse]: props.columnReverse,
+    [styles.wrap]: props.wrap,
+    
+    [styles.wrapReverse]: props.wrapReverse,
+    [styles.justifyStart]: props.justifyStart,
+    [styles.justifyEnd]: props.justifyEnd,
+    [styles.justifyCenter]: props.justifyCenter,
+    [styles.justifyBetween]: props.justifyBetween,
+    [styles.justifyAround]: props.justifyAround,
+    [styles.justifyEvenly]: props.justifyEvenly,
+    [styles.alignStart]: props.alignStart,
+    [styles.alignEnd]: props.alignEnd,
+    [styles.alignCenter]: props.alignCenter,
+    [styles.alignBaseline]: props.alignBaseline,
+    [styles.alignStretch]: props.alignStretch,
+    [styles.alignContentStart]: props.alignContentStart,
+    [styles.alignContentEnd]: props.alignContentEnd,
+    [styles.alignContentCenter]: props.alignContentCenter,
+    [styles.alignContentBetween]: props.alignContentBetween,
+    [styles.alignContentAround]: props.alignContentAround,
+    [styles.alignContentStretch]: props.alignContentStretch,
+    [styles.alignSelfStart]: props.alignSelfStart,
+    [styles.alignSelfEnd]: props.alignSelfEnd,
+    [styles.alignSelfCenter]: props.alignSelfCenter,
+    [styles.alignSelfBaseline]: props.alignSelfBaseline,
+    [styles.alignSelfStretch]: props.alignSelfStretch,
+    [styles.grow0]: props.grow0,
+    [styles.grow1]: props.grow1,
+    [styles.grow2]: props.grow2,
+    [styles.grow3]: props.grow3,
+    [styles.grow4]: props.grow4,
+    [styles.grow5]: props.grow5,
+    [styles.grow6]: props.grow6,
+    [styles.grow7]: props.grow7,
+    [styles.grow8]: props.grow8,
+    [styles.grow9]: props.grow9,
+    [styles.grow10]: props.grow10,
+    [styles.shrink0]: props.shrink0,
+    [styles.shrink1]: props.shrink1,
+    [styles.shrink2]: props.shrink2,
+    [styles.shrink3]: props.shrink3,
+    [styles.shrink4]: props.shrink4,
+    [styles.shrink5]: props.shrink5,
+    [styles.shrink6]: props.shrink6,
+    [styles.shrink7]: props.shrink7,
+    [styles.shrink8]: props.shrink8,
+    [styles.shrink9]: props.shrink9,
+    [styles.shrink10]: props.shrink10,
+    [styles.basis0]: props.basis0,
+    [styles.basis1]: props.basis1,
+    [styles.basis2]: props.basis2,
+    [styles.basis3]: props.basis3,
+    [styles.basis4]: props.basis4,
+    [styles.basis5]: props.basis5,
+    [styles.basis6]: props.basis6,
+    [styles.basis7]: props.basis7,
+    [styles.basis8]: props.basis8,
+    [styles.basis9]: props.basis9,
+    [styles.basis10]: props.basis10,
+    [styles.flex]: props.flex,
+    [styles.flex1]: props.flex1,
+    [styles.flex2]: props.flex2,
+    [styles.flex3]: props.flex3,
+    [styles.flex4]: props.flex4,
+    [styles.flex5]: props.flex5,
+    [styles.flex6]: props.flex6,
+    [styles.flex7]: props.flex7,
+    [styles.flex8]: props.flex8,
+    [styles.flex9]: props.flex9,
+    [styles.flex10]: props.flex10
+  })
+  
+  const style = {
+    ...(gap && { gap }),
+    ...(padding && { padding }),
+    ...(padding_top && { paddingTop: padding_top }),
+    ...(padding_bottom && { paddingBottom: padding_bottom }),
+    ...(padding_left && { paddingLeft: padding_left }),
+    ...(padding_right && { paddingRight: padding_right }),
+    ...(margin && { margin }),
+    ...(margin_top && { marginTop: margin_top }),
+    ...(margin_bottom && { marginBottom: margin_bottom }),
+    ...(margin_left && { marginLeft: margin_left }),
+    ...(margin_right && { marginRight: margin_right }),
+  };
+
+  return (
+    <Element className={classes} {...props} style={style}>
+      {children}
+    </Element>
+  );
+}

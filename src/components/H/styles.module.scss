@@ -1,0 +1,43 @@
+@import "../../styles/theme.scss";
+
+.h1{
+  font-family: $h1Font;
+  font-size: $h1FontSize;
+  font-weight: $h1FontWeight;
+  color: $h1Color;
+}
+
+.h2 {
+  font-family: $h2Font;
+  font-size: $h2FontSize;
+  font-weight: $h2FontWeight;
+  color: $h2Color;
+}
+
+.h3 {
+  font-family: $h3Font;
+  font-size: $h3FontSize;
+  font-weight: $h3FontWeight;
+  color: $h3Color;
+}
+
+.h4 {
+  font-family: $h4Font;
+  font-size: $h4FontSize;
+  font-weight: $h4FontWeight;
+  color: $h4Color;
+}
+
+.h5 {
+  font-family: $h5Font;
+  font-size: $h5FontSize;
+  font-weight: $h5FontWeight;
+  color: $h5Color;
+}
+
+.h6 {
+  font-family: $h6Font;
+  font-size: $h6FontSize;
+  font-weight: $h6FontWeight;
+  color: $h6Color;
+}

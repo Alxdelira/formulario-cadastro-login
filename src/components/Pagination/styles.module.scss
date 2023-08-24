@@ -1,0 +1,67 @@
+@import "../../styles/theme.scss";
+
+.pagination {
+  display: flex;
+  list-style: none;
+  font-family: $textMediumFont;
+  font-size: $textMediumFontSize;
+  font-weight: $textMediumFontWeight;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_dot {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+.dot {
+  font-family: $textMediumFont;
+  font-size: $textMediumFontSize;
+  font-weight: $textMediumFontWeight;
+}
+
+.container_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container_item {
+  margin-top: 0.5rem;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.page_item {
+  display: inline-block;
+  min-width: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: $black;
+  padding: 0.5rem;
+  border-radius: 5%;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+  border-radius: 30%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $gray;
+    color: $black;
+  }
+}
+
+.active {
+  background-color: $secondary;
+  color: $black;
+}

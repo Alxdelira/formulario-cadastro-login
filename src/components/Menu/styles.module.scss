@@ -1,0 +1,36 @@
+@import "../../styles/theme.scss";
+
+.menuContainer {
+  display: flex;
+  background-color: $lightGray;
+}
+
+.menu {
+  min-height: 100vh;
+  flex-grow: 1;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .313rem;
+  color: $menuColor;
+  font-family: $menuFont;
+  font-size: $menuFontSize;
+  font-weight: $menuFontWeight;
+}
+
+.menuItem img {
+  margin-right: .5rem;
+}
+
+.menuItem:hover {
+  background-color: $gray;
+}
+
+.menuButton {
+  cursor: pointer;
+}

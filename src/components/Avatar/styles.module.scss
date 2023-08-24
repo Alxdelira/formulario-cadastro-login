@@ -1,0 +1,21 @@
+@import "../../styles/theme.scss";
+
+.link {
+  text-decoration: none;
+  //ToDo: add hover effect
+}
+
+.image {
+  border-radius: 50%;
+  border: .1rem solid $secondary;
+}
+
+.small {
+  width: 1rem;
+  height: auto;
+}
+
+.big {
+  width: 4rem;
+  height: auto;
+}

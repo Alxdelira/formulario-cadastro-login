@@ -1,0 +1,53 @@
+@import "../../styles/theme.scss";
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid $gray;
+  border-radius: 4px;
+}
+
+.input[type="checkbox"]:checked + .label::before {
+  content: "";
+  background-color: $primary;
+}
+
+.label::after {
+  content: "\2713";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  font-size: 16px;
+  color: $white;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.input[type="checkbox"]:checked + .label::after {
+  opacity: 1;
+}

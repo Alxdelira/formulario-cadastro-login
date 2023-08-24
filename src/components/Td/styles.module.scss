@@ -1,0 +1,15 @@
+@import "../../styles/theme.scss";
+
+.td {
+  text-align: center;
+  border: 1px solid $darkGray;
+  padding: .5rem;
+}
+
+.right {
+  text-align: right !important;
+}
+
+.left {
+  text-align: left !important;
+}
