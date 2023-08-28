@@ -8,7 +8,9 @@ import Input from "@/components/Input";
 import Label from "@/components/Label";
 import Loading from "@/components/Loading";
 import Modal from "@/components/Modal";
+import Option from "@/components/Option";
 import Pagination from "@/components/Pagination";
+import Select from "@/components/Select";
 import Table from "@/components/Table";
 import Tbody from "@/components/Tbody";
 import Td from "@/components/Td";
@@ -33,6 +35,22 @@ export default function ListarUsuarios() {
   const maxPages = useRef(null);
   const nome = useRef(null);
   const email = useRef(null);
+  const { handleSubmit, register, setValue } = useForm();
+
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    ativo: ""
+  })
+  const [modal, setModal] = useState({
+    atualizaNome: false,
+    atualizaEmail: false,
+    atualizaAtivo: false
+  });
+
+  const [selectId, setSelectedUserId] = useState(null);
+
+  const user = users?.find((user) => user._id === router.query.id);
 
   async function listarUsuarios() {
     try {
@@ -52,7 +70,7 @@ export default function ListarUsuarios() {
       console.log(error);
     }
   }
-
+  {/* Funcão para deletar usuario */ }
   async function deletarUsuario(id) {
     try {
       const res = await api.delete(`/user/${id}`)
@@ -61,37 +79,31 @@ export default function ListarUsuarios() {
       console.log(error)
     }
   }
+{/*Fim da Função para deletar usuario */}
 
-  const [submit, setSubmit] = useState({
-    click: false,
-    type: "",
-    message: ""
-  });
-
-  const { handleSubmit, register, reset } = useForm();
-
-  async function atualizarUsuario(data) {
+  {/*Função para Atualizar Usuario */ }
+  async function atualizarUsuario(data, id) {
     try {
-      const res = await api.put(`/user/${id}`, {
-        name: data.nome,
+      const res = await api.patch(`/user/${selectId}`, {
+        name: data.name,
         email: data.email,
         ativo: data.ativo
       })
-      setSubmit({ click: true, type: "success", message: res.data.message })
-      listarUsuarios();
+      listarUsuarios()
+      setModalsair(false)
     } catch (error) {
-      setSubmit({ click: true, type: "error", message: error.response.data.message })
+      console.log(error);
     }
   }
 
-
   useEffect(() => {
-    setTimeout(() => {
-      if (submit.click) {
-        setSubmit({ click: false, type: "", message: "" })
-      }
-    }, 6000);
-  }, [submit.click])
+    if (user) {
+      setValue("nome", user.name);
+      setValue("email", user.email);
+      setValue("ativo", user.ativo ? "Ativo" : "Inativo");
+    }
+  }, [user]);
+{/*Fim da Função para atualizar usuario */}
 
   useEffect(() => {
     listarUsuarios();
@@ -102,32 +114,45 @@ export default function ListarUsuarios() {
       <Loading />
     </>
   }
-  console.log(modalsair)
+
   return (
     <>
-      {modalsair && <Modal minWidth="30%" modalTitle="Deseja Atualizar Usuario" booleanFunction={() => setModalsair(false)}>
+      {modalsair && <Modal minWidth="40%" modalTitle={`Atualizar Usuario:`} booleanFunction={() => setModalsair(false)}>
         <Container margin_top="2rem" justifyCenter="true">
           <Form onSubmit={handleSubmit(atualizarUsuario)}>
             <FormGroup>
               <FormItem>
                 <Label>Nome:</Label>
-                <Input {...register("nome")} type="text" />
+                <Input {...register("name")} type="text" />
               </FormItem>
               <FormItem>
                 <Label>E-mail:</Label>
-                <Input {...register("email")} type="email" />
+                <Input
+                  {...register("email")}
+                  type="email" />
               </FormItem>
               <FormItem>
-                <Label>Senha:</Label>
-                <Input {...register("ativo")} type={true} />
+                <Label>Situação:</Label>
+                <Select>
+                  <Option
+                    {...register("ativo")}
+                    type={true}>Ativo</Option>
+                  <Option
+                    {...register("ativo")}
+                    type={false}>Inativo</Option>
+                </Select>
               </FormItem>
             </FormGroup>
-            <Button onClick={() => atualizarUsuario()}>Atualizar</Button>
-            <Button onClick={() => setModalsair(false)} danger="true">Não</Button>
+            <Button type="submit">
+              Atualizar
+            </Button>
+            <Button onClick={() => setModalsair(false)} danger="true">Cancelar</Button>
           </Form>
         </Container>
       </Modal>
       }
+
+
       <Container>
         <H level={1}>Listar Usuarios</H>
       </Container>
@@ -185,7 +210,7 @@ export default function ListarUsuarios() {
                     }}
                     onClick={() => deletarUsuario(user._id)}>
                     <Image src="/icons/delete.svg" width={20} height={20} />
-                  </button>
+                  </button> {/* Deletar Usuario*/}
 
                   <button
                     style={{
@@ -195,7 +220,10 @@ export default function ListarUsuarios() {
                       cursor: "pointer",
                       padding: "0 .5rem 0 .5rem"
                     }}
-                    onClick={() => setModalsair(true)}
+                    onClick={() => {
+                      setSelectedUserId(user._id); // Use setSelectedUserId em vez de setSelectedUsersId
+                      setModalsair(true);
+                    }}
                   >
                     <Image src="/icons/edit.svg" width={20} height={20} />
                   </button>
@@ -207,7 +235,9 @@ export default function ListarUsuarios() {
                       border: "none",
                       cursor: "pointer"
                     }}
-                    onClick={() => (user._id)}>
+                    onClick={() => {
+                      setModalsair(true);
+                    }}>
                     <Image src="/icons/reader.svg" width={20} height={20} />
                   </button>
                 </Td>
